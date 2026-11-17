@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoadReady Arkansas</title>
+  <link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#18345f">
+</head>
+<body>
+  <aside class="sidebar"><div class="brand"><span class="brand-mark"></span><div><strong>RoadReady</strong><small>Arkansas driver prep</small></div></div>
+    <nav><button class="nav-item active" data-view="home">⌂ <span>My dashboard</span></button><button class="nav-item" data-view="learn">▣ <span>Learn by topic</span></button><button class="nav-item" data-view="flashcards"> <span>Flashcards</span></button><button class="nav-item" data-view="quiz"> <span>Practice quiz</span></button></nav>
+    <div class="sidebar-bottom"><a href="Arkansas-DL-Manual.pdf" target="_blank">↗ Open study guide</a><p>Built from the Arkansas Driver License Study Guide<br>July 2023 · Edition 8</p></div>
+  </aside>
+  <main><header><button class="mobile-menu" aria-label="Open menu"></button><div><p class="eyebrow" id="eyebrow">YOUR NEXT MILESTONE</p><h1 id="page-title">Good to see you, Azalea.</h1></div><div class="header-actions"><span class="streak"> <b id="streak">0</b> day streak</span><button class="avatar">A</button></div></header>
+    <section id="app" class="content"></section>
+  </main>
+  <div id="toast" role="status"></div><script src="app.js"></script><script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');</script>
+</body></html>

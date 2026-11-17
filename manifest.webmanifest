@@ -1,0 +1,10 @@
+{
+  "name": "RoadReady Arkansas",
+  "short_name": "RoadReady",
+  "description": "Azalea's Arkansas driver license study coach",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#18345f",
+  "icons": []
+}
