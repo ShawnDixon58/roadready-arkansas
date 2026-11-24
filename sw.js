@@ -1,5 +1,5 @@
-const CACHE = 'roadready-arkansas-v4';
-const FILES = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './Arkansas-DL-Manual.pdf'];
+const CACHE = 'roadready-arkansas-v5';
+const FILES = ['./', './index.html', './styles.css', './bank.js', './app.js', './manifest.webmanifest', './Arkansas-DL-Manual.pdf'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)));
   self.skipWaiting();
