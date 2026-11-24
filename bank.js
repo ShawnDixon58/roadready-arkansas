@@ -146,13 +146,29 @@ const categoryFacts = {
 };
 
 const categoryNames = Object.keys(categoryFacts);
-const questionBank = categoryNames.flatMap(category => categoryFacts[category].map(([topic, answer], index) => ({
-  id: `${category}-${index + 1}`,
-  category,
-  topic,
-  q: `Which statement is correct about ${topic}?`,
-  a: [answer, 'This rule can be ignored when traffic is light.', 'The safest choice is to do the opposite.', 'This applies only when another driver is watching.'],
-  correct: 0,
-  why: answer,
-  page: category
-})));
+function shuffleChoices(answer, categoryIndex, questionIndex) {
+  const choices = [
+    answer,
+    'Ignore this rule when traffic is light and visibility is good, even though safe-driving rules still apply.',
+    'Use this only when another driver tells you to do so, regardless of signs, conditions, or the law.',
+    'The rule changes whenever you are in a hurry or running late, as long as you feel in control.'
+  ];
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = (categoryIndex * 11 + questionIndex * 7 + i * 5) % (i + 1);
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+  return { choices, correct: choices.indexOf(answer) };
+}
+const questionBank = categoryNames.flatMap((category, categoryIndex) => categoryFacts[category].map(([topic, answer], questionIndex) => {
+  const result = shuffleChoices(answer, categoryIndex, questionIndex);
+  return {
+    id: `${category}-${questionIndex + 1}`,
+    category,
+    topic,
+    q: `Which statement is correct about ${topic}?`,
+    a: result.choices,
+    correct: result.correct,
+    why: answer,
+    page: category
+  };
+}));
